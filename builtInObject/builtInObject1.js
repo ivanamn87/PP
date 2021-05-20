@@ -3,6 +3,15 @@
 Input: [2, 4, 7, 11, -2, 1]
 Output: [2, 2, 4, 4, 7, 7, 11, 11,  -2, -2, 1, 1]   */
 
+function duplicateArray(array) {
+    var result = [];
+    array.forEach(function (element) {
+        result.push(element, element);
+    });
+    return result;
+}
+
+console.log(duplicateArray([2, 4, 7, 11, -2, 1]));
 
 
 
@@ -12,6 +21,14 @@ Output: [2, 2, 4, 4, 7, 7, 11, 11,  -2, -2, 1, 1]   */
 Input: [8, 13, 8, 9, 12, 8, 1, 1, 4, 13]
 Output: [1, 4, 8, 9, 12, 13]    */
 
+var arr = [8, 13, 8, 9, 12, 8, 1, 1, 4, 13];
+
+function removeDuplicates(data) {
+    return data.filter((value, index) => data.indexOf(value) === index);
+}
+
+console.log(removeDuplicates(arr).sort(function(a, b){return a-b}));
+
 
 
 
@@ -20,6 +37,7 @@ Output: [1, 4, 8, 9, 12, 13]    */
 Input: [1, 2, 9, 2, 1]
 Output: true                      */
  
+
 
 
 
@@ -37,3 +55,5 @@ Output: 4                         */
 /* TASK 5: Write a function that finds the smallest element of a given array. The function should return an object that contains the smallest value and its last position in the array.
 Input: [1, 4, -2, 11, 8, 1, -2, 3]
 Output:  { minValue: -2, minLastIndex: 6 }     */
+
+
