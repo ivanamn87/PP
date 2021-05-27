@@ -1,6 +1,5 @@
 
 /* TASK 1: Write a JavaScript function that reverses a number. typeof result of the function should be “number”.
-
 12345 -> 54321    */
 
 function reverse_a_number(n)
@@ -9,7 +8,6 @@ function reverse_a_number(n)
 	return n.split("").reverse().join("");
 }
 console.log(reverse_a_number(12345));
-
 
 
 
@@ -30,9 +28,7 @@ console.log(alphabet_order("webmaster"));
 
 
 
-
 /* TASK 3: Write a function to alphabetize words of a given string. Alphabetizing a string means rearranging the letters so they are sorted from A to Z.
-
 "Republic Of Serbia" -> "Rbceilpu Of Sabeir"           */
 
 function alphabetize_string(stringInput){
@@ -45,9 +41,7 @@ console.log(alphabetize_string('Republic of Serbia'));
 
 
 
-
 /* TASK 4: Write a function to split a string and convert it into an array of words.
-
 "John Snow" -> [ 'John', 'Snow' ]      */
 
 string_to_array = function (str) {
@@ -59,10 +53,7 @@ console.log(string_to_array("John Snow"));
 
 
 
-
-
 /* TASK 5: Write a function to convert a string to its abbreviated form. 
-
 "John Snow" -> 	"John S."              */
 
 abbrev_name = function (str1) {
@@ -73,3 +64,89 @@ abbrev_name = function (str1) {
     return split_names[0];
 };
 console.log(abbrev_name("John Snow"));
+
+
+
+
+
+/* TASK 6:  Write a function that adds string to the left or right of string, by replacing it’s characters.
+	'0000', ‘123’, 'l' -> 0123 
+'00000000', ‘123’, 'r' -> 12300000  */
+
+var a = "0000";
+var b = "123";
+var newString = "";
+
+function addString (a, b, c){
+  if (c === "l") {
+    return (a + b).slice(-a.length)
+  } else {
+    return (b + a).substring(0, a.length);
+  }
+}
+
+console.log(addString("0000", "123", "l"));
+console.log(addString("0000000", "123", "r"));
+
+
+
+
+
+/* TASK 7: Write a function to capitalize the first letter of a string and returns modified string.
+"js string exercises" -> "Js string exercises"   */
+
+function capitalizeFirstLetter(string) {
+  return string.charAt(0).toUpperCase() + string.slice(1);
+}
+
+console.log(capitalizeFirstLetter('js string exercises')); // Js string exercises
+
+
+
+
+
+/* TASK 8: Write a function to hide email addresses to protect them from unauthorized users.
+	"somerandomaddress@example.com" -> "somerand...@example.com"   */
+
+  protect_email = function (user_email) {
+    var avg, splitted, part1, part2;
+    splitted = user_email.split("@");
+    part1 = splitted[0];
+    avg = part1.length / 2;
+    part1 = part1.substring(0, (part1.length - avg));
+    part2 = splitted[1];
+    return part1 + "...@" + part2;
+};
+
+console.log(protect_email("somerandomaddress@example.com"));
+
+
+
+
+
+/* TASK 9: Write a program that accepts a string as input and swaps the case of each character. For example, if you input 'The Quick Brown Fox', the output should be 'tHE qUICK bROWN fOX'.
+       var UPPER = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
+       var LOWER = 'abcdefghijklmnopqrstuvwxyz';
+"The Quick Brown Fox" -> "tHE qUICK bROWN fOX"        */
+
+var str = 'The Quick Brown Fox';
+var UPPER = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
+var LOWER = 'abcdefghijklmnopqrstuvwxyz';
+var result = [];
+  
+  for(var x=0; x<str.length; x++)
+  {
+    if(UPPER.indexOf(str[x]) !== -1)
+    {
+      result.push(str[x].toLowerCase());
+    }
+    else if(LOWER.indexOf(str[x]) !== -1)
+    {
+      result.push(str[x].toUpperCase());
+    }
+    else 
+    {
+      result.push(str[x]);
+    }
+  }
+console.log(result.join(''));
