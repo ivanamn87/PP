@@ -15,7 +15,7 @@ console.log(capitalize(array));
 // Dario
 cons capitaliz = arr => {
     .filter(item => typeof item === 'string')
-    .map(item => item[0].toUpperCase() + item.slice(1))
+        .map(item => item[0].toUpperCase() + item.slice(1))
 }
 
 console.log(capitaliz(array));
@@ -27,7 +27,32 @@ console.log(capitaliz(array));
 // 	Output: [{ name: “Banana”, price: 144 }, { name: “Orange”,  price: 120 }] // product full price
 // 	Output2: [ 24, 20 ] // tax only
 
+const products = [{
+    name: "Banana",
+    price: 120.23
+}, {
+    name: "Orange",
+    price: 100
+}];
 
+const productsWithTax = products.map(product => {
+
+    const {
+        price: prodPrice
+    } = product;
+
+    const newProd = {
+        ...product,
+        price: Number.parseFloat(prodPrice),
+        priceWithTax: prodPrice * 1.2,
+        tax: prodPrice * 0.2
+    }
+
+    return newProd
+})
+
+console.log(products);
+console.log(productsWithTax);
 
 
 
@@ -90,13 +115,13 @@ let arrArg = [23, 11.5, 9, "abc", 45, 28, 553];
 let newArrInte = [];
 
 let findNumberFive = arrArg.filter(element => {
-    let integerNum = (Number.isInteger(element));
-    if(integerNum){
+            let integerNum = (Number.isInteger(element));
+            if (integerNum) {
 
-    }
+            }
 
 
-}
+        }
 
 
 
@@ -106,19 +131,13 @@ let findNumberFive = arrArg.filter(element => {
 //	Input: [1.6, 11.34, 29.23, 7, 3.11, 18]
 //	Output: 1, 2, 5
 
-let index ="";
+        const indexesGreater = (...arg) => {
+            return arg
+                .filter(element => element > 10)
+                .map(element => arg.indexOf(element));
+        }
 
-let indexfOfEleGreaterThenTen = (arr) => {
-    arr.forEach(e => {
-       if(e > 10) {
-        index += `${arr.indexOf(e)}, `;
-       }
-       return index;
-    })    
-}
-
-indexfOfEleGreaterThenTen([1.6, 11.34, 29.23, 7, 3.11, 18])
-console.log(index);
+        console.log(indexesGreater(1.6, 11.34, 29.23, 7, 3.11, 18));
 
 
 
@@ -131,7 +150,58 @@ console.log(index);
 // c. Write a function that check if there is a person older than 40.
 // d. Write a function that checks if all persons are older than 20.  
 
+        let persons = [{
+            name: "James",
+            age: 30
+        }, {
+            name: "Ana",
+            age: 20
+        }, {
+            name: "Liam",
+            age: 51
+        }, {
+            name: "Ema",
+            age: 42
+        }, {
+            name: "Ava",
+            age: 24
+        }, {
+            name: "Charlotte",
+            age: 33
+        }];
 
+        const printOlderThan25 = array => {
+            var result = [];
+            array.forEach(element => {
+                if (element.age > 25) {
+                    result.push(element.name)
+                }
+            });
+            return result;
+        }
+        console.log(printOlderThan25(persons));
+
+        const printOlderThan40 = array => {
+            var result = [];
+            array.forEach(element => {
+                if (element.age > 40) {
+                    result.push(element.name)
+                }
+            });
+            return result;
+        }
+        console.log(printOlderThan40(persons));
+
+        const printOlderThan20 = array => {
+            var result = [];
+            array.forEach(element => {
+                if (element.age > 20) {
+                    result.push(element.name)
+                }
+            });
+            return result;
+        }
+        console.log(printOlderThan20(persons));
 
 
 
@@ -142,7 +212,13 @@ console.log(index);
 //  Input: [3, -12, 4, 11]
 //	Output: no
 
+        let array = [3, 11, 9, 5, 6];
 
+        const positiveIntValues = (arr) => {
+            return arr.every(element => element >= 0);
+        }
+
+        positiveIntValues(array) ? console.log("Yes") : console.log("No");
 
 
 
@@ -151,17 +227,17 @@ console.log(index);
 // Input: [2, 8, 3]
 // Output:  48
 
-let arr = [2, 8, 3];
+        let arr = [2, 8, 3];
 
-let productOfArrays = (arr) => {
-    let first = arr[0];
-    for (let i=1; i <arr.length; i++){
-        first *= arr[i];
-    }
-    return first;
-}
+        let productOfArrays = (arr) => {
+            let first = arr[0];
+            for (let i = 1; i < arr.length; i++) {
+                first *= arr[i];
+            }
+            return first;
+        }
 
-console.log (productOfArrays(arr));
+        console.log(productOfArrays(arr));
 
 
 
@@ -172,10 +248,10 @@ console.log (productOfArrays(arr));
 // Input: [2, 7, 3, 8, 5.4] 
 // Output: 8
 
-let arr = [2, 7, 3, 8, 5.4];
+        let arr = [2, 7, 3, 8, 5.4];
 
-let maxNumber = arr => {
-    return Math.max(...arr);
-}
+        let maxNumber = arr => {
+            return Math.max(...arr);
+        }
 
-console.log(maxNumber(arr));
+        console.log(maxNumber(arr));
